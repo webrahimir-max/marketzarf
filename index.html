@@ -165,6 +165,49 @@ footer .logo small{color:var(--gold2)}
 .dbody .cat,.card .pr.ask{color:var(--gold-ink)}
 .tag,.card .pr small,.bnav a,.bnav button{font-size:12px}
 .trust div,.flow li span{font-size:12px}
+/* polish round · 390px review */
+:root{--bnav-h:62px}
+/* 1 toast above bottom nav */
+.toast{bottom:calc(var(--bnav-h) + env(safe-area-inset-bottom) + 16px);right:auto;left:50%;transform:translate(-50%,12px);max-width:calc(100vw - 32px);overflow:hidden;text-overflow:ellipsis;padding:11px 20px;font-weight:500;box-shadow:0 8px 24px rgba(20,8,22,.28)}
+.toast.on{transform:translate(-50%,0)}
+/* 2 category circles */
+.stories{gap:12px;margin-inline:-16px;padding:4px 16px 10px;scroll-snap-type:x mandatory;scroll-padding-inline:16px;--fs:0px;--fe:0px;-webkit-mask-image:linear-gradient(to left,transparent 0,#000 var(--fs),#000 calc(100% - var(--fe)),transparent 100%);mask-image:linear-gradient(to left,transparent 0,#000 var(--fs),#000 calc(100% - var(--fe)),transparent 100%)}
+.stories.fade-s{--fs:36px}.stories.fade-e{--fe:48px}
+.story{width:80px;gap:8px;font-size:13px;font-weight:500;line-height:1.45;text-align:center;scroll-snap-align:start}
+.story:first-child{margin-inline-start:auto}.story:last-child{margin-inline-end:auto}
+.story.on{font-weight:700}
+.ring{width:72px;height:72px}
+/* 3 hero */
+.eyebrow{background:var(--plum);color:var(--gold2);border:0;font-weight:700;padding:3px 12px;box-shadow:0 2px 8px rgba(20,8,22,.3)}
+.slide::after{background:linear-gradient(to top,rgba(24,9,26,.96) 0%,rgba(24,9,26,.78) 38%,rgba(24,9,26,.3) 68%,rgba(24,9,26,0) 88%)}
+.cap .row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cap .row .price{margin:0}
+@media(max-width:759px){
+ .hero{aspect-ratio:auto;height:min(56vw,300px);min-height:200px;border-radius:20px}
+ .slide .cap{padding:12px 16px 44px}
+ .eyebrow{margin-bottom:6px}
+ .cap h1,.cap h2{font-size:17px;line-height:1.5;margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ .cap .price{font-size:15px}
+ .cap .btn{min-height:44px;padding:0 18px;font-size:14px}
+}
+/* 4 + 6 cards and grid */
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;justify-items:stretch;align-content:start;gap:12px}
+.card{height:100%}
+.card h4{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:calc(2 * 1.6em)}
+.card .pr{margin-top:auto;padding-top:4px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}}
+/* 5 detail stepper */
+.drow{align-items:center}
+.qty.dq{flex:0 0 auto;min-height:46px}
+.qty.dq button{width:44px;height:44px;font-size:20px}
+.qty.dq span{min-width:24px;font-size:15px}
+/* 7 backdrop */
+.scrim{background:rgba(20,8,22,.55);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);cursor:pointer}
+/* 8 trust row */
+.trust{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 4px;margin-top:14px;padding:10px 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);list-style:none}
+.trust li{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--plum);white-space:nowrap}
+.trust svg{width:18px;height:18px;flex:0 0 auto;color:var(--gold-ink);margin:0}
+@media(min-width:760px){.trust{justify-content:center;gap:40px}.trust li{font-size:13px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -184,17 +227,22 @@ footer .logo small{color:var(--gold2)}
   <section class="hero" aria-label="پیشنهادهای ویژه">
     <div class="slides" id="slides">
       <div class="slide"><img src="hero-tray-silver.jpg" alt="سینی سه‌تکه سیلور" />
-        <div class="cap"><span class="eyebrow">سینی سه‌تکه سیلور</span><h1>درخشش نقره‌ای برای پذیرایی‌های خاص</h1><p class="price">۲٬۹۰۰٬۰۰۰ تومان</p><button class="btn" data-show="1">مشاهده و سفارش</button></div></div>
+        <div class="cap"><span class="eyebrow">سینی سه‌تکه سیلور</span><h1>درخشش نقره‌ای برای پذیرایی‌های خاص</h1><div class="row"><button class="btn" data-show="1">مشاهده و سفارش</button><p class="price">۲٬۹۰۰٬۰۰۰ تومان</p></div></div></div>
       <div class="slide"><img src="flask-gold-1.jpg" alt="فلاسک تمام طلایی طرح جدید" loading="lazy" />
-        <div class="cap"><h2>فلاسک تمام طلایی طرح جدید</h2><p class="price">۳٬۹۹۰٬۰۰۰ تومان</p><button class="btn" data-show="8">مشاهده و سفارش</button></div></div>
+        <div class="cap"><h2>فلاسک تمام طلایی طرح جدید</h2><div class="row"><button class="btn" data-show="8">مشاهده و سفارش</button><p class="price">۳٬۹۹۰٬۰۰۰ تومان</p></div></div></div>
       <div class="slide"><img src="spice-rack-1.jpg" alt="جاادویه وارداتی" loading="lazy" />
-        <div class="cap"><h2>جاادویه وارداتی</h2><p class="price">۴٬۸۰۰٬۰۰۰ تومان</p><button class="btn" data-show="12">مشاهده و سفارش</button></div></div>
+        <div class="cap"><h2>جاادویه وارداتی</h2><div class="row"><button class="btn" data-show="12">مشاهده و سفارش</button><p class="price">۴٬۸۰۰٬۰۰۰ تومان</p></div></div></div>
     </div>
     <div class="dots" id="dots"></div>
   </section>
 
   <section class="sec" aria-label="دسته‌بندی‌ها">
     <div class="stories" id="stories"></div>
+    <ul class="trust" aria-label="چرا مارکت ظرف">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>کیفیت تضمینی</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.3"/></svg>قیمت منصفانه</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h12v10H2z"/><path d="M14 9h4l3 3v4h-7"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>ارسال به سراسر ایران</li>
+    </ul>
   </section>
 
   <section class="sec" id="shop">
@@ -263,7 +311,7 @@ var U=function(f){return IMG[f]||f};
 var fa=function(n){return Number(n).toLocaleString("fa-IR")};
 var money=function(n){return fa(n)+" تومان"};
 var $=function(s){return document.querySelector(s)};
-var cart=JSON.parse(localStorage.getItem("mz-cart")||"[]"),cat="all",cur=null,size=0;
+var cart=JSON.parse(localStorage.getItem("mz-cart")||"[]"),cat="all",cur=null,size=0,dq=1;
 var byId=function(id){return P.filter(function(x){return x.id==id})[0]};
 
 /* hero */
@@ -279,6 +327,8 @@ $("#slides").addEventListener("touchend",function(e){var dx=e.changedTouches[0].
 /* stories */
 $("#stories").innerHTML=CATS.map(function(c){return '<button class="story'+(c.id=="all"?" on":"")+'" data-cat="'+c.id+'"><span class="ring"><span'+(c.img?'':' class="all"')+'>'+(c.img?'<img src="'+U(c.img)+'" alt="">':'همه')+'</span></span>'+c.n+'</button>'}).join("");
 $("#stories").onclick=function(e){var b=e.target.closest(".story");if(!b)return;cat=b.dataset.cat;document.querySelectorAll(".story").forEach(function(s){s.classList.toggle("on",s==b)});$("#gridTitle").textContent=cat=="all"?"همه محصولات":b.textContent;render();if(cat!="all")$("#shop").scrollIntoView({behavior:"smooth"})};
+function storyFade(){var s=$("#stories"),max=s.scrollWidth-s.clientWidth,x=Math.abs(s.scrollLeft);s.classList.toggle("fade-s",max>2&&x>2);s.classList.toggle("fade-e",max>2&&x<max-2)}
+$("#stories").addEventListener("scroll",storyFade,{passive:true});window.addEventListener("resize",storyFade);window.addEventListener("load",storyFade);storyFade();
 
 /* grid */
 function priceHtml(p){return p.st=="ask"?'<p class="pr ask">استعلام قیمت</p>':'<p class="pr">'+(p.sizes?'<small>از</small> ':'')+fa(p.p)+' <small>تومان</small></p>'}
@@ -293,9 +343,9 @@ render();
 
 /* detail */
 function show(id){
- cur=byId(id);size=0;var p=cur;
+ cur=byId(id);size=0;dq=1;var p=cur;
  var sz=p.sizes?'<p class="lbl">سایز</p><div class="sizes">'+p.sizes.map(function(s,i){return '<button data-size="'+i+'" class="'+(i?"":"on")+'">'+s[0]+'</button>'}).join("")+'</div>':'';
- var act=p.st=="out"?'<button class="btn dark" data-notify="'+p.id+'">خبرم کن</button>':p.st=="ask"?'<button class="btn" data-ask="'+p.id+'">استعلام قیمت در واتساپ</button>':'<button class="btn" data-add="'+p.id+'">افزودن به سبد</button>';
+ var act=p.st=="out"?'<button class="btn dark" data-notify="'+p.id+'">خبرم کن</button>':p.st=="ask"?'<button class="btn" data-ask="'+p.id+'">استعلام قیمت در واتساپ</button>':'<div class="qty dq" role="group" aria-label="تعداد"><button data-dqinc aria-label="بیشتر">+</button><span id="dqv" aria-live="polite">۱</span><button data-dqdec aria-label="کمتر">−</button></div><button class="btn" data-add="'+p.id+'">افزودن به سبد</button>';
  var st=p.st=="low"?'<p class="note" style="color:#7A5A1E;font-weight:700">تعداد محدود</p>':p.tag?'<p class="note" style="color:#7A5A1E;font-weight:700">'+p.tag+'</p>':p.st=="out"?'<p class="note">فعلاً ناموجود است؛ با «خبرم کن» در واتساپ به شما اطلاع می‌دهیم.</p>':'';
  $("#detail").innerHTML='<div class="grab"></div><button class="x" data-close aria-label="بستن">×</button><div class="gal">'+p.img.map(function(s){return '<img src="'+U(s)+'" alt="'+p.n+'">'}).join("")+'</div><div class="dbody"><p class="cat">'+CATS.filter(function(c){return c.id==p.c})[0].n+'</p><h3>'+p.n+'</h3><p class="desc">'+p.d+'</p>'+sz+(p.st=="ask"?'<p class="dprice" style="color:var(--gold-ink)">استعلام قیمت</p>':'<p class="dprice" id="dprice">'+money(p.p)+'</p>')+st+'<div class="drow">'+act+'</div><p class="note">قبل از ارسال، موجودی در واتساپ تأیید می‌شود.</p></div>';
  open("#detail");
@@ -304,7 +354,7 @@ function unit(p,s){return p.sizes?p.sizes[s][1]:p.p}
 
 /* cart */
 function save(){localStorage.setItem("mz-cart",JSON.stringify(cart));var q=cart.reduce(function(a,c){return a+c.q},0);document.querySelectorAll("[data-badge]").forEach(function(b){b.textContent=fa(q);b.classList.toggle("on",q>0);b.classList.remove("bump");void b.offsetWidth;b.classList.add("bump")})}
-function add(id,s){var p=byId(id),key=id+"-"+(s||0),l=cart.filter(function(c){return c.k==key})[0];if(l)l.q++;else cart.push({k:key,id:id,s:s||0,q:1});save();toast("«"+p.n+"» به سبد اضافه شد")}
+function add(id,s,q){q=q||1;var p=byId(id),key=id+"-"+(s||0),l=cart.filter(function(c){return c.k==key})[0];if(l)l.q+=q;else cart.push({k:key,id:id,s:s||0,q:q});save();toast((q>1?fa(q)+" × ":"")+"«"+p.n+"» به سبد اضافه شد")}
 function drawCart(){
  var tot=0,h='<div class="grab"></div><button class="x" data-close aria-label="بستن">×</button><div class="cart"><h3>سبد خرید</h3>';
  if(!cart.length)h+='<p class="note" style="padding:24px 0">سبد شما خالی است.</p><button class="btn ghost" style="width:100%" data-close>دیدن محصولات</button>';
@@ -328,8 +378,9 @@ function toast(t){var e=$("#toast");e.textContent=t;e.classList.add("on");clearT
 
 document.addEventListener("click",function(e){
  var t=e.target.closest("button,[data-show]");if(!t)return;var d=t.dataset;
+ if("dqinc" in d||"dqdec" in d){dq=Math.max(1,Math.min(99,dq+("dqinc" in d?1:-1)));$("#dqv").textContent=fa(dq);return}
  if(d.show)show(d.show);
- else if(d.add){add(+d.add,cur&&cur.id==d.add&&$("#detail").classList.contains("on")?size:0);if($("#detail").classList.contains("on"))close()}
+ else if(d.add){var inD=cur&&cur.id==d.add&&$("#detail").classList.contains("on");add(+d.add,inD?size:0,inD?dq:1);if(inD)close()}
  else if(d.size!=null){size=+d.size;t.parentNode.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",b==t)});$("#dprice").textContent=money(unit(cur,size))}
  else if(d.notify)wa("سلام، لطفاً وقتی «"+byId(d.notify).n+"» موجود شد خبرم کنید.");
  else if(d.ask)wa("سلام، قیمت و موجودی «"+byId(d.ask).n+"» رو می‌خواستم.");
