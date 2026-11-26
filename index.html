@@ -1,446 +1,344 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>مارکت ظرف | نمونه فروشگاه</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap"
-    />
-    <link rel="stylesheet" href="hark.css" />
-    <link rel="stylesheet" href="hark-hero.css" />
-    <link rel="stylesheet" href="hark-cards.css" />
-    <style>
-      :root { --sans: "Vazirmatn", "Geist", -apple-system, BlinkMacSystemFont, Tahoma, sans-serif; }
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>مارکت ظرف | ظروف لوکس پذیرایی</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" />
+<style>
+:root{--ivory:#FBF8F3;--ivory2:#F3ECE1;--plum:#3B1E3F;--plum2:#55304F;--gold:#C9A15B;--gold2:#E3C88F;--ink:#2A1A2C;--mute:#7A6A76;--line:#E8DDCC;--r:18px;--sh:0 10px 30px rgba(59,30,63,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Vazirmatn,system-ui,sans-serif;background:var(--ivory);color:var(--ink);line-height:1.7;padding-bottom:76px;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+/* top bar */
+.top{position:sticky;top:0;z-index:40;background:rgba(251,248,243,.78);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid rgba(201,161,91,.25)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{display:flex;flex-direction:column;line-height:1.1}
+.logo b{font-weight:800;font-size:20px;color:var(--plum);letter-spacing:-.3px}
+.logo small{font-size:11px;color:var(--gold);font-weight:500;letter-spacing:.5px}
+.topnav{display:none;gap:24px;font-size:14px;color:var(--plum)}
+.icon-btn{position:relative;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:var(--plum);border:1px solid var(--line);background:#fff}
+.badge{position:absolute;top:-3px;left:-3px;min-width:20px;height:20px;border-radius:10px;background:var(--gold);color:var(--plum);font-size:11px;font-weight:800;display:grid;place-items:center;padding:0 5px;transform:scale(0);transition:transform .25s}
+.badge.on{transform:scale(1)}
+.badge.bump{animation:bump .4s}
+@keyframes bump{50%{transform:scale(1.35)}}
+/* hero */
+.hero{position:relative;margin:14px auto 0;border-radius:24px;overflow:hidden;aspect-ratio:4/5;max-height:560px;background:var(--plum);box-shadow:var(--sh)}
+.slides{display:flex;height:100%;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.slide{position:relative;flex:0 0 100%;height:100%}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,12,32,.92) 0%,rgba(30,12,32,.45) 42%,rgba(30,12,32,0) 70%)}
+.slide .cap{position:absolute;z-index:2;right:0;left:0;bottom:0;padding:22px 20px 46px;color:#fff}
+.eyebrow{display:inline-block;font-size:12px;color:var(--gold2);border:1px solid rgba(227,200,143,.5);border-radius:99px;padding:2px 12px;margin-bottom:10px}
+.cap h1,.cap h2{font-size:25px;font-weight:800;line-height:1.45;margin-bottom:6px}
+.cap .price{font-size:17px;color:var(--gold2);font-weight:700;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 22px;border-radius:99px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--plum);font-weight:800;font-size:15px;box-shadow:0 6px 18px rgba(201,161,91,.35);transition:transform .2s}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;box-shadow:none;border:1.5px solid var(--plum);color:var(--plum)}
+.btn.dark{background:var(--plum);color:#fff;box-shadow:none}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.dots{position:absolute;bottom:18px;right:50%;transform:translateX(50%);display:flex;gap:6px;z-index:3}
+.dots button{width:8px;height:8px;border-radius:8px;background:rgba(255,255,255,.45);transition:width .3s,background .3s;padding:0}
+.dots button.on{width:24px;background:var(--gold)}
+/* stories */
+.sec{padding:30px 0 8px}
+.sec h3.t{font-size:20px;font-weight:800;color:var(--plum);margin-bottom:4px}
+.sec p.s{font-size:13px;color:var(--mute);margin-bottom:16px}
+.stories{display:flex;gap:14px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none}
+.stories::-webkit-scrollbar{display:none}
+.story{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;width:74px;font-size:12px;color:var(--plum);font-weight:500}
+.ring{width:70px;height:70px;border-radius:50%;padding:3px;background:var(--line);transition:background .3s}
+.ring span{display:block;width:100%;height:100%;border-radius:50%;overflow:hidden;border:3px solid var(--ivory);background:var(--ivory2)}
+.story.on .ring{background:conic-gradient(from 200deg,var(--gold),var(--gold2),var(--plum2),var(--gold))}
+.story.on{font-weight:800}
+.ring .all{display:grid;place-items:center;font-weight:800;color:var(--gold);font-size:13px;background:var(--plum)}
+/* trust */
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.trust div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 4px;text-align:center;font-size:11.5px;font-weight:500;color:var(--plum);line-height:1.5}
+.trust svg{width:24px;height:24px;color:var(--gold);margin:0 auto 4px;display:block}
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.card{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;text-align:right;transition:transform .25s,box-shadow .25s;animation:fade .45s both}
+.card:hover{transform:translateY(-3px);box-shadow:var(--sh)}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}}
+.card .ph{position:relative;display:block;width:100%;aspect-ratio:1;background:var(--ivory2)}
+.tag{position:absolute;top:8px;right:8px;font-size:11px;font-weight:700;padding:2px 10px;border-radius:99px;background:rgba(255,255,255,.92);color:var(--plum)}
+.tag.low{background:var(--gold);color:var(--plum)}
+.tag.out{background:var(--plum);color:#fff}
+.card.is-out .ph img{filter:grayscale(.6) brightness(.9)}
+.card .bd{padding:10px 12px 12px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card h4{font-size:13.5px;font-weight:700;line-height:1.6;color:var(--ink)}
+.card .pr{font-size:14px;font-weight:800;color:var(--plum);margin-top:auto}
+.card .pr small{font-weight:400;font-size:11px;color:var(--mute)}
+.card .pr.ask{color:var(--gold);font-size:13px}
+.add{margin-top:6px;min-height:40px;border-radius:12px;background:var(--plum);color:#fff;font-size:13px;font-weight:700}
+.add.alt{background:var(--ivory2);color:var(--plum)}
+.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:30px}
+/* flow */
+.flow{background:linear-gradient(160deg,#fff,var(--ivory2));border:1px solid var(--line);border-radius:24px;padding:24px 18px;margin-top:30px;text-align:center}
+.flow h3{font-size:19px;font-weight:800;color:var(--plum);margin-bottom:18px}
+.flow ol{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;position:relative}
+.flow li{font-size:12.5px;color:var(--plum);font-weight:500;line-height:1.6}
+.flow li i{display:grid;place-items:center;width:56px;height:56px;margin:0 auto 8px;border-radius:50%;background:var(--plum);color:var(--gold2);font-style:normal}
+.flow li i svg{width:26px;height:26px}
+.flow li b{display:block;font-weight:800}
+.flow li span{color:var(--mute);font-size:11.5px}
+/* footer */
+footer{background:var(--plum);color:#EFE4F0;margin-top:36px;padding:32px 0 26px;border-radius:28px 28px 0 0}
+footer .logo b{color:#fff}
+footer p{font-size:13px;opacity:.85;margin:10px 0 16px}
+.soc{display:flex;gap:10px;flex-wrap:wrap}
+.soc a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:99px;border:1px solid rgba(227,200,143,.4);font-size:13px;color:var(--gold2)}
+.soc svg{width:18px;height:18px}
+.credit{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);font-size:12px;opacity:.7;text-align:center}
+.credit a{color:var(--gold2)}
+/* bottom nav */
+.bnav{position:fixed;bottom:0;right:0;left:0;z-index:45;background:rgba(255,255,255,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);padding:6px 6px calc(6px + env(safe-area-inset-bottom))}
+.bnav a,.bnav button{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--mute);min-height:50px;justify-content:center}
+.bnav svg{width:22px;height:22px}
+.bnav .on{color:var(--plum);font-weight:700}
+.bnav .badge{top:2px;left:calc(50% - 22px)}
+/* sheets */
+.scrim{position:fixed;inset:0;background:rgba(30,12,32,.5);z-index:60;opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;z-index:70;right:0;left:0;bottom:0;max-height:92vh;overflow-y:auto;background:var(--ivory);border-radius:26px 26px 0 0;transform:translateY(105%);transition:transform .4s cubic-bezier(.2,.8,.2,1);padding-bottom:env(safe-area-inset-bottom)}
+.sheet.on{transform:none}
+.grab{width:42px;height:5px;border-radius:5px;background:var(--line);margin:10px auto}
+.x{position:absolute;top:12px;left:12px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;z-index:2;font-size:20px;color:var(--plum)}
+.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;padding:0 16px;scrollbar-width:none}
+.gal img{flex:0 0 86%;aspect-ratio:1;border-radius:18px;scroll-snap-align:center}
+.gal img:only-child{flex-basis:100%}
+.dbody{padding:16px 18px 22px}
+.dbody h3{font-size:20px;font-weight:800;color:var(--plum);line-height:1.5}
+.dbody .cat{font-size:12px;color:var(--gold);font-weight:700}
+.dbody .desc{font-size:14px;color:#4E3E4C;margin:8px 0 14px}
+.dprice{font-size:20px;font-weight:800;color:var(--plum)}
+.sizes{display:flex;gap:8px;margin:8px 0 14px;flex-wrap:wrap}
+.sizes button{min-height:44px;padding:0 16px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font-size:13px;color:var(--plum)}
+.sizes button.on{border-color:var(--gold);background:#FFF8EA;font-weight:800}
+.lbl{font-size:13px;font-weight:700;color:var(--plum);margin-top:6px}
+.drow{display:flex;gap:10px;margin-top:14px}
+.drow .btn{flex:1}
+.note{font-size:12px;color:var(--mute);margin-top:10px;text-align:center}
+/* cart */
+.cart{padding:0 18px 20px}
+.cart h3{font-size:19px;font-weight:800;color:var(--plum);margin:4px 0 14px}
+.line{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.line img{width:64px;height:64px;border-radius:12px}
+.line b{font-size:13px;display:block;line-height:1.5}
+.line small{font-size:12px;color:var(--mute)}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:99px;background:#fff}
+.qty button{width:34px;height:36px;font-size:18px;color:var(--plum)}
+.qty span{min-width:20px;text-align:center;font-size:13px;font-weight:700}
+.tot{display:flex;justify-content:space-between;font-weight:800;color:var(--plum);margin:16px 0 4px;font-size:16px}
+.wa{width:100%;margin-top:12px;background:#1FAF55;color:#fff;box-shadow:0 6px 18px rgba(31,175,85,.3)}
+.wa svg{width:20px;height:20px}
+.toast{position:fixed;bottom:92px;right:50%;transform:translate(50%,20px);background:var(--plum);color:#fff;padding:10px 18px;border-radius:99px;font-size:13px;z-index:90;opacity:0;transition:.3s;pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1;transform:translate(50%,0)}
+@media(min-width:760px){
+ body{padding-bottom:0}.bnav{display:none}.topnav{display:flex}
+ .hero{aspect-ratio:16/7}.cap{max-width:560px}.cap h1,.cap h2{font-size:34px}
+ .slide .cap{padding:40px 44px 56px}
+ .grid{grid-template-columns:repeat(4,1fr);gap:18px}
+ .trust div{font-size:13px;padding:16px}
+ .sheet{max-width:520px;margin:0 auto;bottom:24px;border-radius:26px}
+ .toast{bottom:30px}
+}
+/* a11y fixes */
+:root{--gold-ink:#7A5A1E}
+.logo{min-height:44px;justify-content:center}
+.logo small{font-size:12px;color:var(--gold-ink)}
+footer .logo small{color:var(--gold2)}
+.btn{background-color:var(--gold)}
+.dots{gap:0;bottom:6px}
+.dots button,.dots button.on{width:44px;height:44px;background:none;display:grid;place-items:center}
+.dots button::before{content:"";width:8px;height:8px;border-radius:8px;background:rgba(255,255,255,.55);transition:width .3s,background .3s}
+.dots button.on::before{width:24px;background:var(--gold)}
+.add{min-height:44px}
+.credit a{display:inline-block;padding:12px 4px;margin:-12px 0}
+.x{width:44px;height:44px}
+.dbody .cat,.card .pr.ask{color:var(--gold-ink)}
+.tag,.card .pr small,.bnav a,.bnav button{font-size:12px}
+.trust div,.flow li span{font-size:12px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" id="top"><b>مارکت ظرف</b><small>MARKET ZARF · LUXURY</small></a>
+    <nav class="topnav"><a href="#shop">محصولات</a><a href="#how">نحوه سفارش</a><a href="#contact">تماس</a></nav>
+    <button class="icon-btn" data-open-cart aria-label="سبد خرید">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <span class="badge" data-badge>۰</span>
+    </button>
+  </div>
+</header>
 
-      .x-brand { display: grid; justify-items: center; gap: 4px; text-align: center; padding-top: 8px; }
-      .x-brand__name { font: var(--type-display); }
-      .x-brand__tag { font: var(--type-small); color: var(--text-secondary); }
-      .x-brand__ig { font: var(--type-tag); color: var(--text-secondary); text-decoration: none; direction: ltr; display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap); min-width: var(--tap); padding: 0 8px; }
-
-      .x-feature {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        border-radius: var(--r-xl);
-        overflow: hidden;
-        background: var(--fill-tertiary);
-        box-shadow: var(--hark-shadow);
-      }
-      .x-feature__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
-      .x-feature__copy { display: grid; align-content: center; gap: 12px; padding: 24px 20px 24px; }
-      .x-feature__eyebrow { font: var(--type-label); color: var(--text-secondary); }
-      .x-feature h1 { font: var(--type-display); letter-spacing: 0; }
-      .x-feature__sub { font: var(--type-body); color: var(--text-secondary); max-width: 36ch; }
-      .x-feature__row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
-      .x-feature__price { font: var(--type-title); }
-      @media (min-width: 900px) {
-        .x-feature { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
-        .x-feature__img { aspect-ratio: auto; height: 100%; min-height: 420px; }
-        .x-feature__copy { padding: 40px; }
-      }
-
-      .x-cta {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 48px;
-        padding: 0 28px;
-        border-radius: var(--r-pill);
-        background: var(--fill-primary);
-        color: var(--text-primary-on);
-        font: var(--type-body-strong);
-        text-decoration: none;
-        transition: transform var(--dur-quick) var(--ease-out);
-      }
-      .x-cta:active { transform: scale(0.97); }
-      @media (max-width: 599px) { .x-feature .x-cta { width: 100%; } }
-
-      .x-stock { display: inline-flex; align-items: center; gap: 6px; font: var(--type-tag); color: var(--text-primary); }
-      .x-stock::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--fill-system-green); }
-      .x-stock[data-s="low"]::before { background: var(--fill-system-orange); }
-      .x-stock[data-s="out"]::before { background: var(--fill-system-red); }
-      .photo-card__body > .x-stock { align-self: flex-start; }
-
-      .x-trust { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-block: 1px solid var(--stroke-secondary); }
-      .x-trust p { padding: 14px 12px; font: var(--type-label); text-align: center; }
-      .x-trust p:nth-child(odd) { border-inline-end: 1px solid var(--stroke-secondary); }
-      .x-trust p:nth-child(-n+2) { border-bottom: 1px solid var(--stroke-secondary); }
-      .x-trust b { display: block; font: var(--type-heading); }
-      @media (min-width: 760px) {
-        .x-trust { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .x-trust p { border-bottom: 0 !important; border-inline-end: 1px solid var(--stroke-secondary); }
-        .x-trust p:last-child { border-inline-end: 0; }
-      }
-
-      .x-filter { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; margin-bottom: 20px; }
-      .x-filter::-webkit-scrollbar { display: none; }
-      .x-chip {
-        flex: none;
-        min-height: var(--tap);
-        padding: 0 16px;
-        border-radius: var(--r-pill);
-        border: 1px solid var(--stroke-primary);
-        background: var(--fill-primary-on);
-        color: var(--text-primary);
-        font: var(--type-label);
-        cursor: pointer;
-      }
-      .x-chip[aria-pressed="true"] { background: var(--fill-primary); color: var(--text-primary-on); border-color: transparent; }
-      .x-sizes { display: flex; flex-wrap: wrap; gap: 6px; }
-      .x-sizes .x-chip { padding: 0 14px; }
-
-      .x-grid > [hidden] { display: none; }
-      .x-out .photo-card__photos img { filter: grayscale(1); opacity: 0.55; }
-      .x-off {
-        justify-content: center;
-        min-height: 48px;
-        border: 0;
-        border-radius: var(--r-pill);
-        background: var(--fill-tertiary);
-        box-shadow: inset 0 0 0 1px var(--stroke-primary);
-        color: var(--text-secondary);
-        font: var(--type-body-strong);
-        cursor: not-allowed;
-      }
-      .x-off:hover { box-shadow: inset 0 0 0 1px var(--stroke-primary); }
-
-      .x-note { margin-top: 20px; }
-
-      .x-bar { display: none; }
-      @media (max-width: 599px) {
-        .page { padding-bottom: 104px; }
-        .x-bar {
-          display: block;
-          position: fixed;
-          inset: auto 0 0 0;
-          z-index: 30;
-          padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px));
-          background: var(--mat-agent);
-          -webkit-backdrop-filter: var(--hark-blur);
-          backdrop-filter: var(--hark-blur);
-          border-top: 1px solid var(--stroke-secondary);
-        }
-        .x-bar .x-cta { width: 100%; }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="page" id="top">
-      <div class="x-brand">
-        <p class="x-brand__name">مارکت ظرف</p>
-        <p class="x-brand__tag">ظروف اقتصادی، انتخابی هوشمند برای جهیزیه</p>
-        <a class="x-brand__ig" href="https://www.instagram.com/market_zarf/" target="_blank" rel="noopener">@market_zarf</a>
-      </div>
-      <header class="nav glass" data-auto></header>
-      <main class="main">
-        <section class="x-feature" aria-label="محصول ویژه">
-          <img class="x-feature__img" src="hero-tray-silver.jpg" alt="سینی سه‌تکه سیلور در سه سایز" />
-          <div class="x-feature__copy">
-            <p class="x-feature__eyebrow">محصول ویژه</p>
-            <h1>سینی سه‌تکه سیلور</h1>
-            <p class="x-feature__sub">وارداتی و خوش‌طرح، رنگ ثابت، سه سایز کاربردی.</p>
-            <div class="x-feature__row">
-              <p class="x-feature__price">۲٬۹۰۰٬۰۰۰ تومان</p>
-              <span class="x-stock" data-s="in">موجود</span>
-            </div>
-            <a class="x-cta" data-wa="سینی سه‌تکه سیلور" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
-          </div>
-        </section>
-
-        <div class="x-trust">
-          <p><b>کیفیت</b>تضمینی</p>
-          <p><b>قیمت</b>منصفانه</p>
-          <p><b>ارسال</b>به سراسر ایران</p>
-          <p><b>۳۶٫۷ هزار</b>دنبال‌کننده در اینستاگرام</p>
-        </div>
-
-        <section class="section" id="products" data-nav="محصولات">
-          <div class="head">
-            <p class="head__eyebrow">فروشگاه</p>
-            <h2>قیمت و موجودی هر محصول، همین‌جا.</h2>
-          </div>
-          <div class="x-filter" role="group" aria-label="دسته‌بندی">
-            <button class="x-chip" type="button" data-filter="all" aria-pressed="true">همه</button>
-            <button class="x-chip" type="button" data-filter="tray" aria-pressed="false">سینی و دیس</button>
-            <button class="x-chip" type="button" data-filter="souffle" aria-pressed="false">سوفله‌خوری و گرم‌نگهدارنده</button>
-            <button class="x-chip" type="button" data-filter="serve" aria-pressed="false">فلاسک و پذیرایی</button>
-            <button class="x-chip" type="button" data-filter="kitchen" aria-pressed="false">آشپزخانه و نگهداری</button>
-          </div>
-          <div class="photo-cards x-grid">
-            <article class="photo-card" id="tray-silver" data-cat="tray">
-              <div class="photo-card__stage">
-                <div class="photo-card__photos" dir="ltr">
-                  <img src="tray-silver-1.jpg" alt="سینی سه‌تکه سیلور" />
-                </div>
-              </div>
-              <div class="photo-card__body">
-                <div class="photo-card__head"><h3>سینی سه‌تکه سیلور</h3><p class="photo-card__price">۲٬۹۰۰٬۰۰۰ تومان</p></div>
-                <p class="photo-card__meta">وارداتی · رنگ ثابت · سه سایز</p>
-                <span class="x-stock" data-s="in">موجود</span>
-                <a class="link" data-wa="سینی سه‌تکه سیلور" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
-              </div>
-            </article>
-
-            <article class="photo-card" id="tray-wood" data-cat="tray">
-              <div class="photo-card__stage">
-                <div class="photo-card__photos" dir="ltr">
-                  <img src="tray-wood-1.jpg" alt="سینی سه‌تکه چوبی با دسته‌های طلایی" />
-                  <img src="tray-wood-2.jpg" alt="سینی سه‌تکه چوبی، نمای دیگر" loading="lazy" />
-                </div>
-              </div>
-              <div class="photo-card__body">
-                <div class="photo-card__head"><h3>سینی سه‌تکه چوبی</h3><p class="photo-card__price">۳٬۲۵۰٬۰۰۰ تومان</p></div>
-                <p class="photo-card__meta">دسته‌های طلایی · سه سایز · قیمت هر سه عدد</p>
-                <span class="x-stock" data-s="in">موجود</span>
-                <a class="link" data-wa="سینی سه‌تکه چوبی" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
-              </div>
-            </article>
-
-            <article class="photo-card" id="dish-gold" data-cat="tray">
-              <div class="photo-card__stage">
-                <div class="photo-card__photos" dir="ltr">
-                  <img src="dish-gold-1.jpg" alt="دیس استیل طلایی" />
-                  <img src="dish-gold-2.jpg" alt="دیس استیل طلایی، نمای دیگر" loading="lazy" />
-                </div>
-              </div>
-              <div class="photo-card__body">
-                <div class="photo-card__head"><h3>دیس استیل طلایی</h3><p class="photo-card__price" id="dish-price">۲٬۵۰۰٬۰۰۰ تومان</p></div>
-                <p class="photo-card__meta">جنس اصل و ضخیم</p>
-                <div class="x-sizes" role="group" aria-label="سایز">
-                  <button class="x-chip" type="button" aria-pressed="true" data-size="۳۵ سانت" data-price="۲٬۵۰۰٬۰۰۰ تومان">۳۵ سانت</button>
-                  <button class="x-chip" type="button" aria-pressed="false" data-size="۴۰ سانت" data-price="۲٬۸۰۰٬۰۰۰ تومان">۴۰ سانت</button>
-                  <button class="x-chip" type="button" aria-pressed="false" data-size="۵۰ سانت" data-price="۳٬۵۰۰٬۰۰۰ تومان">۵۰ سانت</button>
-                </div>
-                <span class="x-stock" data-s="in">موجود</span>
-                <a class="link" id="dish-order" data-wa="دیس استیل طلایی (۳۵ سانت)" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
-              </div>
-            </article>
-
-            <article class="photo-card" id="souffle-oval" data-cat="souffle">
-              <div class="photo-card__stage">
-                <div class="photo-card__photos" dir="ltr">
-                  <img src="souffle-oval-1.jpg" alt="سوفله‌خوری بیضی لوکس درب‌دار" />
-                </div>
-              </div>
-              <div class="photo-card__body">
-                <div class="photo-card__head"><h3>سوفله‌خوری بیضی لوکس</h3><p class="photo-card__price">۱٬۵۰۰٬۰۰۰ تومان</p></div>
-                <p class="photo-card__meta">درب‌دار · رنگ ثابت · ظرفیت ۱٫۸ لیتر</p>
-                <span class="x-stock" data-s="low">تعداد محدود</span>
-                <a class="link" data-wa="سوفله‌خوری بیضی لوکس" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
-              </div>
-            </article>
-
-            <article class="photo-card" id="warmer" data-cat="souffle">
-              <div class="photo-card__stage">
-                <div class="photo-card__photos" dir="ltr">
-                  <img src="warmer-1.jpg" alt="گرم‌نگهدارنده تمام استیل" />
-                </div>
-              </div>
-              <div class="photo-card__body">
-                <div class="photo-card__head"><h3>گرم‌نگهدارنده تمام استیل</h3><p class="photo-card__price">۵٬۹۰۰٬۰۰۰ تومان</p></div>
-                <p class="photo-card__meta">دوجداره · ۵٫۸ لیتر</p>
-                <span class="x-stock" data-s="in">موجود</span>
-                <a class="link" data-wa="گرم‌نگهدارنده تمام استیل" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
-              </div>
-            </article>
-
-            <article class="photo-card" id="souffle-warmer" data-cat="souffle">
-              <div class="photo-card__stage">
-                <div class="photo-card__photos" dir="ltr">
-                  <img src="souffle-warmer-1.jpg" alt="سوفله‌خوری وارمردار سفید و طلایی" />
-                  <img src="souffle-warmer-2.jpg" alt="سوفله‌خوری وارمردار سفید و طلایی، مدل دیگر" loading="lazy" />
-                </div>
-              </div>
-              <div class="photo-card__body">
-                <div class="photo-card__head"><h3>سوفله‌خوری وارمردار سفید و طلایی</h3><p class="photo-card__price">استعلام قیمت</p></div>
-                <p class="photo-card__meta">مدل دوقلو و تک‌قلو · پایه وارمردار</p>
-                <span class="x-stock" data-s="in">موجود</span>
-                <a class="link" data-wa="سوفله‌خوری وارمردار سفید و طلایی" href="https://wa.me/989913915428" target="_blank" rel="noopener">استعلام قیمت در واتساپ</a>
-              </div>
-            </article>
-
-            <article class="photo-card x-out" id="souffle-twin" data-cat="souffle">
-              <div class="photo-card__stage">
-                <div class="photo-card__photos" dir="ltr">
-                  <img src="souffle-twin-1.jpg" alt="سوفله‌خوری سرامیکی دوقلو مستطیلی" />
-                </div>
-              </div>
-              <div class="photo-card__body">
-                <div class="photo-card__head"><h3>سوفله‌خوری سرامیکی دوقلو مستطیلی</h3><p class="photo-card__price">۲٬۹۰۰٬۰۰۰ تومان</p></div>
-                <p class="photo-card__meta">وارمردار · هر ظرف ۱٫۸ لیتر</p>
-                <span class="x-stock" data-s="out">ناموجود</span>
-                <button class="btn x-off" type="button" disabled>ناموجود</button>
-                <a class="link" data-wa-text="سلام، سوفله‌خوری سرامیکی دوقلو مستطیلی موجود شد خبرم کنید" href="https://wa.me/989913915428" target="_blank" rel="noopener">خبرم کن</a>
-              </div>
-            </article>
-
-            <article class="photo-card" id="flask-gold" data-cat="serve">
-              <div class="photo-card__stage">
-                <div class="photo-card__photos" dir="ltr">
-                  <img src="flask-gold-1.jpg" alt="فلاسک تمام طلایی طرح جدید" />
-                  <img src="flask-gold-2.jpg" alt="فلاسک تمام طلایی، طرح گل برجسته" loading="lazy" />
-                </div>
-              </div>
-              <div class="photo-card__body">
-                <div class="photo-card__head"><h3>فلاسک تمام طلایی طرح جدید</h3><p class="photo-card__price">۳٬۹۹۰٬۰۰۰ تومان</p></div>
-                <p class="photo-card__meta">۱٫۹ لیتر · شیشه صورتی اصل · طرح گل برجسته</p>
-                <span class="x-stock" data-s="in">موجود</span>
-                <a class="link" data-wa="فلاسک تمام طلایی طرح جدید" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
-              </div>
-            </article>
-
-            <article class="photo-card" id="stand-gold" data-cat="serve">
-              <div class="photo-card__stage">
-                <div class="photo-card__photos" dir="ltr">
-                  <img src="stand-gold-1.jpg" alt="ست استند طلایی پذیرایی" />
-                  <img src="stand-gold-2.jpg" alt="ست استند طلایی پذیرایی، نمای دیگر" loading="lazy" />
-                </div>
-              </div>
-              <div class="photo-card__body">
-                <div class="photo-card__head"><h3>ست استند طلایی پذیرایی</h3><p class="photo-card__price">استعلام قیمت</p></div>
-                <p class="photo-card__meta">۱۲ فنجان · ظرف حلواخوری · استند فلزی طلایی</p>
-                <span class="x-stock" data-s="in">موجود</span>
-                <a class="link" data-wa="ست استند طلایی پذیرایی" href="https://wa.me/989913915428" target="_blank" rel="noopener">استعلام قیمت در واتساپ</a>
-              </div>
-            </article>
-
-            <article class="photo-card" id="halva-bowl" data-cat="serve">
-              <div class="photo-card__stage">
-                <div class="photo-card__photos" dir="ltr">
-                  <img src="halva-bowl-1.jpg" alt="کاسه حلوایی لعابی خارجی" />
-                </div>
-              </div>
-              <div class="photo-card__body">
-                <div class="photo-card__head"><h3>کاسه حلوایی لعابی خارجی</h3><p class="photo-card__price">۸۵۰٬۰۰۰ تومان</p></div>
-                <p class="photo-card__meta">۱۶ سانت · دو طرح · قیمت هر عدد</p>
-                <span class="x-stock" data-s="in">موجود</span>
-                <a class="link" data-wa="کاسه حلوایی لعابی خارجی" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
-              </div>
-            </article>
-
-            <article class="photo-card" id="bowl-ceramic" data-cat="kitchen">
-              <div class="photo-card__stage">
-                <div class="photo-card__photos" dir="ltr">
-                  <img src="bowl-ceramic-1.jpg" alt="کاسه سرامیکی سه‌تکه با درب سوپاپ‌دار" />
-                  <img src="bowl-ceramic-2.jpg" alt="کاسه سرامیکی سه‌تکه، نمای دیگر" loading="lazy" />
-                </div>
-              </div>
-              <div class="photo-card__body">
-                <div class="photo-card__head"><h3>کاسه سرامیکی سه‌تکه</h3><p class="photo-card__price">۱٬۶۰۰٬۰۰۰ تومان</p></div>
-                <p class="photo-card__meta">درب سوپاپ‌دار · قطر ۱۰، ۱۲ و ۱۵ سانت</p>
-                <span class="x-stock" data-s="in">موجود</span>
-                <a class="link" data-wa="کاسه سرامیکی سه‌تکه" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
-              </div>
-            </article>
-
-            <article class="photo-card" id="spice-rack" data-cat="kitchen">
-              <div class="photo-card__stage">
-                <div class="photo-card__photos" dir="ltr">
-                  <img src="spice-rack-1.jpg" alt="جاادویه وارداتی با استند چوبی دوطبقه" />
-                  <img src="spice-rack-2.jpg" alt="جاادویه وارداتی، نمای نزدیک" loading="lazy" />
-                </div>
-              </div>
-              <div class="photo-card__body">
-                <div class="photo-card__head"><h3>جاادویه وارداتی</h3><p class="photo-card__price">۴٬۸۰۰٬۰۰۰ تومان</p></div>
-                <p class="photo-card__meta">استند چوبی دوطبقه · شیشه شیاردار · درب چوبی با دستگیره طلایی</p>
-                <span class="x-stock" data-s="in">موجود</span>
-                <a class="link" data-wa="جاادویه وارداتی" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="how" data-nav="نحوه سفارش">
-          <div class="head">
-            <p class="head__eyebrow">نحوه سفارش</p>
-            <h2>سفارش، بدون نگرانی از موجودی</h2>
-          </div>
-          <div class="steps">
-            <article class="step">
-              <div class="step__intro"><p class="step__num">۰۱</p></div>
-              <div><h3>محصول رو انتخاب کنید و «ثبت سفارش» رو بزنید.</h3></div>
-            </article>
-            <article class="step">
-              <div class="step__intro"><p class="step__num">۰۲</p></div>
-              <div><h3>موجودی رو تأیید می‌کنیم و همون‌جا خبرتون می‌کنیم.</h3></div>
-            </article>
-            <article class="step">
-              <div class="step__intro"><p class="step__num">۰۳</p></div>
-              <div><h3>بعد از تأیید پرداخت می‌کنید و سفارش به سراسر ایران ارسال می‌شه.</h3></div>
-            </article>
-          </div>
-          <aside class="callout x-note" aria-label="پرداخت">
-            <p class="callout__lead"><strong>تا موجودی تأیید نشه، پرداختی لازم نیست.</strong></p>
-          </aside>
-        </section>
-
-        <section class="section" id="contact" data-nav="تماس">
-          <div class="head">
-            <p class="head__eyebrow">تماس</p>
-            <h2>سؤال یا سفارش؟ پیام بدید.</h2>
-          </div>
-          <div class="cards">
-            <div>
-              <h3>واتساپ</h3>
-              <p><a class="link" href="https://wa.me/989913915428" target="_blank" rel="noopener">۰۹۹۱۳۹۱۵۴۲۸</a></p>
-            </div>
-            <div>
-              <h3>اینستاگرام</h3>
-              <p><a class="link" href="https://www.instagram.com/market_zarf/" target="_blank" rel="noopener" dir="ltr">@market_zarf</a></p>
-            </div>
-          </div>
-        </section>
-      </main>
-      <footer class="foot">
-        <p>نمونه پیشنهادی طراحی‌شده برای مارکت ظرف توسط webrahim.ir — تصاویر و اطلاعات از صفحه اینستاگرام مارکت ظرف</p>
-        <nav aria-label="بخش‌ها">
-          <a href="#top">بالا</a>
-          <a href="#products">محصولات</a>
-          <a href="#how">نحوه سفارش</a>
-          <a href="#contact">تماس</a>
-        </nav>
-      </footer>
+<main class="wrap">
+  <section class="hero" aria-label="پیشنهادهای ویژه">
+    <div class="slides" id="slides">
+      <div class="slide"><img src="hero-tray-silver.jpg" alt="سینی سه‌تکه سیلور" />
+        <div class="cap"><span class="eyebrow">سینی سه‌تکه سیلور</span><h1>درخشش نقره‌ای برای پذیرایی‌های خاص</h1><p class="price">۲٬۹۰۰٬۰۰۰ تومان</p><button class="btn" data-show="1">مشاهده و سفارش</button></div></div>
+      <div class="slide"><img src="flask-gold-1.jpg" alt="فلاسک تمام طلایی طرح جدید" loading="lazy" />
+        <div class="cap"><h2>فلاسک تمام طلایی طرح جدید</h2><p class="price">۳٬۹۹۰٬۰۰۰ تومان</p><button class="btn" data-show="8">مشاهده و سفارش</button></div></div>
+      <div class="slide"><img src="spice-rack-1.jpg" alt="جاادویه وارداتی" loading="lazy" />
+        <div class="cap"><h2>جاادویه وارداتی</h2><p class="price">۴٬۸۰۰٬۰۰۰ تومان</p><button class="btn" data-show="12">مشاهده و سفارش</button></div></div>
     </div>
-    <div class="x-bar">
-      <a class="x-cta" href="https://wa.me/989913915428" target="_blank" rel="noopener">سفارش در واتساپ</a>
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <section class="sec" aria-label="دسته‌بندی‌ها">
+    <div class="stories" id="stories"></div>
+  </section>
+
+  <section class="sec" id="shop">
+    <h3 class="t" id="gridTitle">همه محصولات</h3>
+    <p class="s">روی هر محصول بزنید تا جزئیات و عکس‌های بیشتر را ببینید.</p>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="flow" id="how">
+    <h3>سفارش بدون نگرانی از موجودی</h3>
+    <ol>
+      <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></i><b>انتخاب کنید</b><span>محصولات را به سبد اضافه کنید</span></li>
+      <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 20l1.5-4A8 8 0 1 1 9 19l-5 1z"/></svg></i><b>ارسال در واتساپ</b><span>لیست سفارش خودکار آماده می‌شود</span></li>
+      <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></i><b>تأیید و ارسال</b><span>موجودی را تأیید و بسته را ارسال می‌کنیم</span></li>
+    </ol>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="logo"><b>مارکت ظرف</b><small>MARKET ZARF · LUXURY</small></div>
+    <p>ظروف لوکس پذیرایی و آشپزخانه</p>
+    <div class="soc">
+      <a href="https://wa.me/989913915428" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.1 1.2z"/></svg>واتساپ ۰۹۹۱۳۹۱۵۴۲۸</a>
+      <a href="https://www.instagram.com/market_zarf/" target="_blank" rel="noopener" dir="ltr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>@market_zarf</a>
     </div>
-    <script src="hark.js"></script>
-    <script src="hark-cards.js"></script>
-    <script>
-      (function () {
-        var WA = "https://wa.me/989913915428?text=";
-        function orderHref(name) {
-          return WA + encodeURIComponent("سلام، می‌خوام این محصول رو سفارش بدم: " + name);
-        }
-        document.querySelectorAll("[data-wa]").forEach(function (a) {
-          a.href = orderHref(a.getAttribute("data-wa"));
-        });
-        document.querySelectorAll("[data-wa-text]").forEach(function (a) {
-          a.href = WA + encodeURIComponent(a.getAttribute("data-wa-text"));
-        });
+    <p class="credit">نمونه پیشنهادی طراحی‌شده توسط <a href="https://webrahim.ir" target="_blank" rel="noopener">webrahim.ir</a></p>
+  </div>
+</footer>
 
-        var price = document.getElementById("dish-price");
-        var order = document.getElementById("dish-order");
-        document.querySelectorAll(".x-sizes .x-chip").forEach(function (b, _, all) {
-          b.addEventListener("click", function () {
-            all.forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
-            price.textContent = b.getAttribute("data-price");
-            order.href = orderHref("دیس استیل طلایی (" + b.getAttribute("data-size") + ")");
-          });
-        });
+<nav class="bnav" aria-label="ناوبری پایین">
+  <a href="#top" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-7 9 7v9h-6v-6H9v6H3z"/></svg>خانه</a>
+  <a href="#shop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>محصولات</a>
+  <button data-open-cart><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>سبد خرید<span class="badge" data-badge>۰</span></button>
+  <a href="https://wa.me/989913915428" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.5-4A8 8 0 1 1 9 19l-5 1z"/></svg>واتساپ</a>
+</nav>
 
-        var cards = document.querySelectorAll(".x-grid > .photo-card");
-        document.querySelectorAll("[data-filter]").forEach(function (b, _, all) {
-          b.addEventListener("click", function () {
-            var f = b.getAttribute("data-filter");
-            all.forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
-            cards.forEach(function (c) { c.hidden = f !== "all" && c.getAttribute("data-cat") !== f; });
-          });
-        });
-      })();
-    </script>
-  </body>
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="detail" role="dialog" aria-modal="true" aria-label="جزئیات محصول"></div>
+<div class="sheet" id="cart" role="dialog" aria-modal="true" aria-label="سبد خرید"></div>
+<div class="toast" id="toast"></div>
+<div id="imgs" hidden aria-hidden="true">
+<img data-k="bowl-ceramic-1.jpg" src="bowl-ceramic-1.jpg" alt=""><img data-k="bowl-ceramic-2.jpg" src="bowl-ceramic-2.jpg" alt=""><img data-k="dish-gold-1.jpg" src="dish-gold-1.jpg" alt=""><img data-k="dish-gold-2.jpg" src="dish-gold-2.jpg" alt=""><img data-k="flask-gold-2.jpg" src="flask-gold-2.jpg" alt=""><img data-k="halva-bowl-1.jpg" src="halva-bowl-1.jpg" alt=""><img data-k="souffle-oval-1.jpg" src="souffle-oval-1.jpg" alt=""><img data-k="souffle-twin-1.jpg" src="souffle-twin-1.jpg" alt=""><img data-k="souffle-warmer-1.jpg" src="souffle-warmer-1.jpg" alt=""><img data-k="souffle-warmer-2.jpg" src="souffle-warmer-2.jpg" alt=""><img data-k="spice-rack-2.jpg" src="spice-rack-2.jpg" alt=""><img data-k="stand-gold-1.jpg" src="stand-gold-1.jpg" alt=""><img data-k="stand-gold-2.jpg" src="stand-gold-2.jpg" alt=""><img data-k="tray-silver-1.jpg" src="tray-silver-1.jpg" alt=""><img data-k="tray-wood-1.jpg" src="tray-wood-1.jpg" alt=""><img data-k="tray-wood-2.jpg" src="tray-wood-2.jpg" alt=""><img data-k="warmer-1.jpg" src="warmer-1.jpg" alt="">
+</div>
+
+<script>
+var WA="989913915428";
+var CATS=[{id:"all",n:"همه"},{id:"tray",n:"سینی و دیس",img:"tray-wood-1.jpg"},{id:"souffle",n:"سوفله‌خوری",img:"souffle-oval-1.jpg"},{id:"warmer",n:"گرم‌نگهدارنده",img:"warmer-1.jpg"},{id:"serve",n:"فلاسک و پذیرایی",img:"stand-gold-1.jpg"},{id:"kitchen",n:"آشپزخانه",img:"bowl-ceramic-1.jpg"}];
+var P=[
+{id:1,c:"tray",n:"سینی سه‌تکه سیلور",p:2900000,img:["tray-silver-1.jpg"],d:"وارداتی، رنگ ثابت، سه سایز کاربردی",tag:"پیشنهاد ویژه"},
+{id:2,c:"tray",n:"سینی سه‌تکه چوبی",p:3250000,img:["tray-wood-1.jpg","tray-wood-2.jpg"],d:"دسته‌های طلایی، سه سایز (قیمت برای هر سه عدد)"},
+{id:3,c:"tray",n:"دیس استیل طلایی",p:2500000,img:["dish-gold-1.jpg","dish-gold-2.jpg"],d:"جنس اصل و ضخیم",sizes:[["۳۵ سانت",2500000],["۴۰ سانت",2800000],["۵۰ سانت",3500000]]},
+{id:4,c:"souffle",n:"سوفله‌خوری بیضی لوکس",p:1500000,img:["souffle-oval-1.jpg"],d:"درب‌دار، رنگ ثابت، ۱٫۸ لیتر",st:"low"},
+{id:5,c:"souffle",n:"سوفله‌خوری وارمردار سفید و طلایی",p:0,img:["souffle-warmer-1.jpg","souffle-warmer-2.jpg"],d:"مدل دوقلو و تک‌قلو، پایه وارمردار",st:"ask"},
+{id:6,c:"souffle",n:"سوفله‌خوری سرامیکی دوقلو مستطیلی",p:2900000,img:["souffle-twin-1.jpg"],d:"وارمردار، هر ظرف ۱٫۸ لیتر",st:"out"},
+{id:7,c:"warmer",n:"گرم‌نگهدارنده تمام استیل",p:5900000,img:["warmer-1.jpg"],d:"دوجداره، ۵٫۸ لیتر"},
+{id:8,c:"serve",n:"فلاسک تمام طلایی طرح جدید",p:3990000,img:["flask-gold-1.jpg","flask-gold-2.jpg"],d:"۱٫۹ لیتر، شیشه صورتی اصل، گل برجسته"},
+{id:9,c:"serve",n:"ست استند طلایی پذیرایی",p:0,img:["stand-gold-1.jpg","stand-gold-2.jpg"],d:"۱۲ فنجان، ظرف حلواخوری، استند فلزی طلایی",st:"ask"},
+{id:10,c:"serve",n:"کاسه حلوایی لعابی خارجی",p:850000,img:["halva-bowl-1.jpg"],d:"۱۶ سانت، دو طرح، قیمت هر عدد"},
+{id:11,c:"kitchen",n:"کاسه سرامیکی سه‌تکه",p:1600000,img:["bowl-ceramic-1.jpg","bowl-ceramic-2.jpg"],d:"درب سوپاپ‌دار، قطر ۱۰، ۱۲ و ۱۵ سانت"},
+{id:12,c:"kitchen",n:"جاادویه وارداتی",p:4800000,img:["spice-rack-1.jpg","spice-rack-2.jpg"],d:"استند چوبی دوطبقه، شیشه شیاردار، درب چوبی با دستگیره طلایی"}
+];
+var IMG={};document.querySelectorAll("#imgs img,.slide img").forEach(function(i){IMG[i.dataset.k||i.getAttribute("alt")]=i.getAttribute("src")});
+IMG["flask-gold-1.jpg"]=document.querySelectorAll(".slide img")[1].getAttribute("src");IMG["spice-rack-1.jpg"]=document.querySelectorAll(".slide img")[2].getAttribute("src");
+var U=function(f){return IMG[f]||f};
+var fa=function(n){return Number(n).toLocaleString("fa-IR")};
+var money=function(n){return fa(n)+" تومان"};
+var $=function(s){return document.querySelector(s)};
+var cart=JSON.parse(localStorage.getItem("mz-cart")||"[]"),cat="all",cur=null,size=0;
+var byId=function(id){return P.filter(function(x){return x.id==id})[0]};
+
+/* hero */
+document.querySelectorAll("[data-hp]").forEach(function(e){e.textContent=money(byId(e.dataset.hp).p)});
+var si=0,n=3,dots=$("#dots"),timer;
+for(var i=0;i<n;i++){var b=document.createElement("button");b.setAttribute("aria-label","اسلاید "+fa(i+1));b.onclick=(function(k){return function(){go(k==si?k+1:k);auto()}})(i);dots.appendChild(b)}
+function go(k){si=(k+n)%n;$("#slides").style.transform="translateX("+(si*100)+"%)";[].forEach.call(dots.children,function(d,j){d.classList.toggle("on",j==si)})}
+function auto(){clearInterval(timer);timer=setInterval(function(){go(si+1)},5000)}
+go(0);auto();
+var tx=0;$("#slides").addEventListener("touchstart",function(e){tx=e.touches[0].clientX},{passive:true});
+$("#slides").addEventListener("touchend",function(e){var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40){go(si+(dx>0?1:-1));auto()}});
+
+/* stories */
+$("#stories").innerHTML=CATS.map(function(c){return '<button class="story'+(c.id=="all"?" on":"")+'" data-cat="'+c.id+'"><span class="ring"><span'+(c.img?'':' class="all"')+'>'+(c.img?'<img src="'+U(c.img)+'" alt="">':'همه')+'</span></span>'+c.n+'</button>'}).join("");
+$("#stories").onclick=function(e){var b=e.target.closest(".story");if(!b)return;cat=b.dataset.cat;document.querySelectorAll(".story").forEach(function(s){s.classList.toggle("on",s==b)});$("#gridTitle").textContent=cat=="all"?"همه محصولات":b.textContent;render();if(cat!="all")$("#shop").scrollIntoView({behavior:"smooth"})};
+
+/* grid */
+function priceHtml(p){return p.st=="ask"?'<p class="pr ask">استعلام قیمت</p>':'<p class="pr">'+(p.sizes?'<small>از</small> ':'')+fa(p.p)+' <small>تومان</small></p>'}
+function render(){
+ var list=P.filter(function(p){return cat=="all"||p.c==cat});
+ $("#grid").innerHTML=list.map(function(p,i){
+  var tag=p.st=="low"?'<span class="tag low">تعداد محدود</span>':p.st=="out"?'<span class="tag out">ناموجود</span>':p.st=="ask"?'<span class="tag">استعلام قیمت</span>':p.tag?'<span class="tag low">'+p.tag+'</span>':'';
+  var btn=p.st=="out"?'<button class="add alt" data-notify="'+p.id+'">خبرم کن</button>':p.st=="ask"?'<button class="add alt" data-ask="'+p.id+'">استعلام در واتساپ</button>':'<button class="add" data-add="'+p.id+'">افزودن به سبد</button>';
+  return '<article class="card'+(p.st=="out"?" is-out":"")+'" style="animation-delay:'+(i*40)+'ms"><button class="ph" data-show="'+p.id+'" aria-label="'+p.n+'"><img src="'+U(p.img[0])+'" alt="'+p.n+'" loading="lazy">'+tag+'</button><div class="bd"><h4>'+p.n+'</h4>'+priceHtml(p)+btn+'</div></article>'}).join("")||'<p class="empty">محصولی در این دسته نیست.</p>';
+}
+render();
+
+/* detail */
+function show(id){
+ cur=byId(id);size=0;var p=cur;
+ var sz=p.sizes?'<p class="lbl">سایز</p><div class="sizes">'+p.sizes.map(function(s,i){return '<button data-size="'+i+'" class="'+(i?"":"on")+'">'+s[0]+'</button>'}).join("")+'</div>':'';
+ var act=p.st=="out"?'<button class="btn dark" data-notify="'+p.id+'">خبرم کن</button>':p.st=="ask"?'<button class="btn" data-ask="'+p.id+'">استعلام قیمت در واتساپ</button>':'<button class="btn" data-add="'+p.id+'">افزودن به سبد</button>';
+ var st=p.st=="low"?'<p class="note" style="color:#7A5A1E;font-weight:700">تعداد محدود</p>':p.tag?'<p class="note" style="color:#7A5A1E;font-weight:700">'+p.tag+'</p>':p.st=="out"?'<p class="note">فعلاً ناموجود است؛ با «خبرم کن» در واتساپ به شما اطلاع می‌دهیم.</p>':'';
+ $("#detail").innerHTML='<div class="grab"></div><button class="x" data-close aria-label="بستن">×</button><div class="gal">'+p.img.map(function(s){return '<img src="'+U(s)+'" alt="'+p.n+'">'}).join("")+'</div><div class="dbody"><p class="cat">'+CATS.filter(function(c){return c.id==p.c})[0].n+'</p><h3>'+p.n+'</h3><p class="desc">'+p.d+'</p>'+sz+(p.st=="ask"?'<p class="dprice" style="color:var(--gold-ink)">استعلام قیمت</p>':'<p class="dprice" id="dprice">'+money(p.p)+'</p>')+st+'<div class="drow">'+act+'</div><p class="note">قبل از ارسال، موجودی در واتساپ تأیید می‌شود.</p></div>';
+ open("#detail");
+}
+function unit(p,s){return p.sizes?p.sizes[s][1]:p.p}
+
+/* cart */
+function save(){localStorage.setItem("mz-cart",JSON.stringify(cart));var q=cart.reduce(function(a,c){return a+c.q},0);document.querySelectorAll("[data-badge]").forEach(function(b){b.textContent=fa(q);b.classList.toggle("on",q>0);b.classList.remove("bump");void b.offsetWidth;b.classList.add("bump")})}
+function add(id,s){var p=byId(id),key=id+"-"+(s||0),l=cart.filter(function(c){return c.k==key})[0];if(l)l.q++;else cart.push({k:key,id:id,s:s||0,q:1});save();toast("«"+p.n+"» به سبد اضافه شد")}
+function drawCart(){
+ var tot=0,h='<div class="grab"></div><button class="x" data-close aria-label="بستن">×</button><div class="cart"><h3>سبد خرید</h3>';
+ if(!cart.length)h+='<p class="note" style="padding:24px 0">سبد شما خالی است.</p><button class="btn ghost" style="width:100%" data-close>دیدن محصولات</button>';
+ else{cart.forEach(function(c){var p=byId(c.id),u=unit(p,c.s);tot+=u*c.q;h+='<div class="line"><img src="'+U(p.img[0])+'" alt=""><div><b>'+p.n+'</b><small>'+(p.sizes?"سایز "+p.sizes[c.s][0]+" · ":"")+money(u)+'</small></div><div class="qty"><button data-inc="'+c.k+'" aria-label="بیشتر">+</button><span>'+fa(c.q)+'</span><button data-dec="'+c.k+'" aria-label="کمتر">−</button></div></div>'});
+  h+='<div class="tot"><span>جمع کل</span><span>'+money(tot)+'</span></div><button class="btn wa" data-send><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>ارسال سفارش در واتساپ</button>'}
+ $("#cart").innerHTML=h+'</div>';
+}
+function send(){
+ var tot=0,lines=cart.map(function(c,i){var p=byId(c.id),u=unit(p,c.s);tot+=u*c.q;return fa(i+1)+". "+p.n+(p.sizes?" (سایز "+p.sizes[c.s][0]+")":"")+" × "+fa(c.q)+" = "+money(u*c.q)});
+ var msg="سلام، سفارش من از مارکت ظرف:\n\n"+lines.join("\n")+"\n\nجمع کل: "+money(tot)+"\n\nلطفا موجودی رو تأیید کنید 🙏";
+ window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg),"_blank");
+}
+function wa(t){window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(t),"_blank")}
+
+/* sheets */
+function open(s){document.querySelectorAll(".sheet").forEach(function(x){x.classList.remove("on")});$(s).classList.add("on");$("#scrim").classList.add("on");document.body.style.overflow="hidden"}
+function close(){document.querySelectorAll(".sheet").forEach(function(x){x.classList.remove("on")});$("#scrim").classList.remove("on");document.body.style.overflow=""}
+$("#scrim").onclick=close;
+document.addEventListener("keydown",function(e){if(e.key=="Escape")close()});
+function toast(t){var e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(e._t);e._t=setTimeout(function(){e.classList.remove("on")},1800)}
+
+document.addEventListener("click",function(e){
+ var t=e.target.closest("button,[data-show]");if(!t)return;var d=t.dataset;
+ if(d.show)show(d.show);
+ else if(d.add){add(+d.add,cur&&cur.id==d.add&&$("#detail").classList.contains("on")?size:0);if($("#detail").classList.contains("on"))close()}
+ else if(d.size!=null){size=+d.size;t.parentNode.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",b==t)});$("#dprice").textContent=money(unit(cur,size))}
+ else if(d.notify)wa("سلام، لطفاً وقتی «"+byId(d.notify).n+"» موجود شد خبرم کنید.");
+ else if(d.ask)wa("سلام، قیمت و موجودی «"+byId(d.ask).n+"» رو می‌خواستم.");
+ else if("openCart" in d){drawCart();open("#cart")}
+ else if("close" in d)close();
+ else if(d.inc||d.dec){var k=d.inc||d.dec,l=cart.filter(function(c){return c.k==k})[0];l.q+=d.inc?1:-1;if(l.q<1)cart=cart.filter(function(c){return c!=l});save();drawCart()}
+ else if("send" in d)send();
+});
+save();document.querySelectorAll("[data-badge]").forEach(function(b){b.classList.remove("bump")});
+</script>
+</body>
 </html>
