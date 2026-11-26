@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>مارکت ظرف | نمونه فروشگاه</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="hark.css" />
+    <link rel="stylesheet" href="hark-hero.css" />
+    <link rel="stylesheet" href="hark-cards.css" />
+    <style>
+      :root { --sans: "Vazirmatn", "Geist", -apple-system, BlinkMacSystemFont, Tahoma, sans-serif; }
+
+      .x-brand { display: grid; justify-items: center; gap: 4px; text-align: center; padding-top: 8px; }
+      .x-brand__name { font: var(--type-display); }
+      .x-brand__tag { font: var(--type-small); color: var(--text-secondary); }
+      .x-brand__ig { font: var(--type-tag); color: var(--text-secondary); text-decoration: none; direction: ltr; display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap); min-width: var(--tap); padding: 0 8px; }
+
+      .x-feature {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        border-radius: var(--r-xl);
+        overflow: hidden;
+        background: var(--fill-tertiary);
+        box-shadow: var(--hark-shadow);
+      }
+      .x-feature__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+      .x-feature__copy { display: grid; align-content: center; gap: 12px; padding: 24px 20px 24px; }
+      .x-feature__eyebrow { font: var(--type-label); color: var(--text-secondary); }
+      .x-feature h1 { font: var(--type-display); letter-spacing: 0; }
+      .x-feature__sub { font: var(--type-body); color: var(--text-secondary); max-width: 36ch; }
+      .x-feature__row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+      .x-feature__price { font: var(--type-title); }
+      @media (min-width: 900px) {
+        .x-feature { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
+        .x-feature__img { aspect-ratio: auto; height: 100%; min-height: 420px; }
+        .x-feature__copy { padding: 40px; }
+      }
+
+      .x-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 28px;
+        border-radius: var(--r-pill);
+        background: var(--fill-primary);
+        color: var(--text-primary-on);
+        font: var(--type-body-strong);
+        text-decoration: none;
+        transition: transform var(--dur-quick) var(--ease-out);
+      }
+      .x-cta:active { transform: scale(0.97); }
+      @media (max-width: 599px) { .x-feature .x-cta { width: 100%; } }
+
+      .x-stock { display: inline-flex; align-items: center; gap: 6px; font: var(--type-tag); color: var(--text-primary); }
+      .x-stock::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--fill-system-green); }
+      .x-stock[data-s="low"]::before { background: var(--fill-system-orange); }
+      .x-stock[data-s="out"]::before { background: var(--fill-system-red); }
+      .photo-card__body > .x-stock { align-self: flex-start; }
+
+      .x-trust { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-block: 1px solid var(--stroke-secondary); }
+      .x-trust p { padding: 14px 12px; font: var(--type-label); text-align: center; }
+      .x-trust p:nth-child(odd) { border-inline-end: 1px solid var(--stroke-secondary); }
+      .x-trust p:nth-child(-n+2) { border-bottom: 1px solid var(--stroke-secondary); }
+      .x-trust b { display: block; font: var(--type-heading); }
+      @media (min-width: 760px) {
+        .x-trust { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .x-trust p { border-bottom: 0 !important; border-inline-end: 1px solid var(--stroke-secondary); }
+        .x-trust p:last-child { border-inline-end: 0; }
+      }
+
+      .x-filter { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; margin-bottom: 20px; }
+      .x-filter::-webkit-scrollbar { display: none; }
+      .x-chip {
+        flex: none;
+        min-height: var(--tap);
+        padding: 0 16px;
+        border-radius: var(--r-pill);
+        border: 1px solid var(--stroke-primary);
+        background: var(--fill-primary-on);
+        color: var(--text-primary);
+        font: var(--type-label);
+        cursor: pointer;
+      }
+      .x-chip[aria-pressed="true"] { background: var(--fill-primary); color: var(--text-primary-on); border-color: transparent; }
+      .x-sizes { display: flex; flex-wrap: wrap; gap: 6px; }
+      .x-sizes .x-chip { padding: 0 14px; }
+
+      .x-grid > [hidden] { display: none; }
+      .x-out .photo-card__photos img { filter: grayscale(1); opacity: 0.55; }
+      .x-off {
+        justify-content: center;
+        min-height: 48px;
+        border: 0;
+        border-radius: var(--r-pill);
+        background: var(--fill-tertiary);
+        box-shadow: inset 0 0 0 1px var(--stroke-primary);
+        color: var(--text-secondary);
+        font: var(--type-body-strong);
+        cursor: not-allowed;
+      }
+      .x-off:hover { box-shadow: inset 0 0 0 1px var(--stroke-primary); }
+
+      .x-note { margin-top: 20px; }
+
+      .x-bar { display: none; }
+      @media (max-width: 599px) {
+        .page { padding-bottom: 104px; }
+        .x-bar {
+          display: block;
+          position: fixed;
+          inset: auto 0 0 0;
+          z-index: 30;
+          padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px));
+          background: var(--mat-agent);
+          -webkit-backdrop-filter: var(--hark-blur);
+          backdrop-filter: var(--hark-blur);
+          border-top: 1px solid var(--stroke-secondary);
+        }
+        .x-bar .x-cta { width: 100%; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page" id="top">
+      <div class="x-brand">
+        <p class="x-brand__name">مارکت ظرف</p>
+        <p class="x-brand__tag">ظروف اقتصادی، انتخابی هوشمند برای جهیزیه</p>
+        <a class="x-brand__ig" href="https://www.instagram.com/market_zarf/" target="_blank" rel="noopener">@market_zarf</a>
+      </div>
+      <header class="nav glass" data-auto></header>
+      <main class="main">
+        <section class="x-feature" aria-label="محصول ویژه">
+          <img class="x-feature__img" src="hero-tray-silver.jpg" alt="سینی سه‌تکه سیلور در سه سایز" />
+          <div class="x-feature__copy">
+            <p class="x-feature__eyebrow">محصول ویژه</p>
+            <h1>سینی سه‌تکه سیلور</h1>
+            <p class="x-feature__sub">وارداتی و خوش‌طرح، رنگ ثابت، سه سایز کاربردی.</p>
+            <div class="x-feature__row">
+              <p class="x-feature__price">۲٬۹۰۰٬۰۰۰ تومان</p>
+              <span class="x-stock" data-s="in">موجود</span>
+            </div>
+            <a class="x-cta" data-wa="سینی سه‌تکه سیلور" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
+          </div>
+        </section>
+
+        <div class="x-trust">
+          <p><b>کیفیت</b>تضمینی</p>
+          <p><b>قیمت</b>منصفانه</p>
+          <p><b>ارسال</b>به سراسر ایران</p>
+          <p><b>۳۶٫۷ هزار</b>دنبال‌کننده در اینستاگرام</p>
+        </div>
+
+        <section class="section" id="products" data-nav="محصولات">
+          <div class="head">
+            <p class="head__eyebrow">فروشگاه</p>
+            <h2>قیمت و موجودی هر محصول، همین‌جا.</h2>
+          </div>
+          <div class="x-filter" role="group" aria-label="دسته‌بندی">
+            <button class="x-chip" type="button" data-filter="all" aria-pressed="true">همه</button>
+            <button class="x-chip" type="button" data-filter="tray" aria-pressed="false">سینی و دیس</button>
+            <button class="x-chip" type="button" data-filter="souffle" aria-pressed="false">سوفله‌خوری و گرم‌نگهدارنده</button>
+            <button class="x-chip" type="button" data-filter="serve" aria-pressed="false">فلاسک و پذیرایی</button>
+            <button class="x-chip" type="button" data-filter="kitchen" aria-pressed="false">آشپزخانه و نگهداری</button>
+          </div>
+          <div class="photo-cards x-grid">
+            <article class="photo-card" id="tray-silver" data-cat="tray">
+              <div class="photo-card__stage">
+                <div class="photo-card__photos" dir="ltr">
+                  <img src="tray-silver-1.jpg" alt="سینی سه‌تکه سیلور" />
+                </div>
+              </div>
+              <div class="photo-card__body">
+                <div class="photo-card__head"><h3>سینی سه‌تکه سیلور</h3><p class="photo-card__price">۲٬۹۰۰٬۰۰۰ تومان</p></div>
+                <p class="photo-card__meta">وارداتی · رنگ ثابت · سه سایز</p>
+                <span class="x-stock" data-s="in">موجود</span>
+                <a class="link" data-wa="سینی سه‌تکه سیلور" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
+              </div>
+            </article>
+
+            <article class="photo-card" id="tray-wood" data-cat="tray">
+              <div class="photo-card__stage">
+                <div class="photo-card__photos" dir="ltr">
+                  <img src="tray-wood-1.jpg" alt="سینی سه‌تکه چوبی با دسته‌های طلایی" />
+                  <img src="tray-wood-2.jpg" alt="سینی سه‌تکه چوبی، نمای دیگر" loading="lazy" />
+                </div>
+              </div>
+              <div class="photo-card__body">
+                <div class="photo-card__head"><h3>سینی سه‌تکه چوبی</h3><p class="photo-card__price">۳٬۲۵۰٬۰۰۰ تومان</p></div>
+                <p class="photo-card__meta">دسته‌های طلایی · سه سایز · قیمت هر سه عدد</p>
+                <span class="x-stock" data-s="in">موجود</span>
+                <a class="link" data-wa="سینی سه‌تکه چوبی" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
+              </div>
+            </article>
+
+            <article class="photo-card" id="dish-gold" data-cat="tray">
+              <div class="photo-card__stage">
+                <div class="photo-card__photos" dir="ltr">
+                  <img src="dish-gold-1.jpg" alt="دیس استیل طلایی" />
+                  <img src="dish-gold-2.jpg" alt="دیس استیل طلایی، نمای دیگر" loading="lazy" />
+                </div>
+              </div>
+              <div class="photo-card__body">
+                <div class="photo-card__head"><h3>دیس استیل طلایی</h3><p class="photo-card__price" id="dish-price">۲٬۵۰۰٬۰۰۰ تومان</p></div>
+                <p class="photo-card__meta">جنس اصل و ضخیم</p>
+                <div class="x-sizes" role="group" aria-label="سایز">
+                  <button class="x-chip" type="button" aria-pressed="true" data-size="۳۵ سانت" data-price="۲٬۵۰۰٬۰۰۰ تومان">۳۵ سانت</button>
+                  <button class="x-chip" type="button" aria-pressed="false" data-size="۴۰ سانت" data-price="۲٬۸۰۰٬۰۰۰ تومان">۴۰ سانت</button>
+                  <button class="x-chip" type="button" aria-pressed="false" data-size="۵۰ سانت" data-price="۳٬۵۰۰٬۰۰۰ تومان">۵۰ سانت</button>
+                </div>
+                <span class="x-stock" data-s="in">موجود</span>
+                <a class="link" id="dish-order" data-wa="دیس استیل طلایی (۳۵ سانت)" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
+              </div>
+            </article>
+
+            <article class="photo-card" id="souffle-oval" data-cat="souffle">
+              <div class="photo-card__stage">
+                <div class="photo-card__photos" dir="ltr">
+                  <img src="souffle-oval-1.jpg" alt="سوفله‌خوری بیضی لوکس درب‌دار" />
+                </div>
+              </div>
+              <div class="photo-card__body">
+                <div class="photo-card__head"><h3>سوفله‌خوری بیضی لوکس</h3><p class="photo-card__price">۱٬۵۰۰٬۰۰۰ تومان</p></div>
+                <p class="photo-card__meta">درب‌دار · رنگ ثابت · ظرفیت ۱٫۸ لیتر</p>
+                <span class="x-stock" data-s="low">تعداد محدود</span>
+                <a class="link" data-wa="سوفله‌خوری بیضی لوکس" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
+              </div>
+            </article>
+
+            <article class="photo-card" id="warmer" data-cat="souffle">
+              <div class="photo-card__stage">
+                <div class="photo-card__photos" dir="ltr">
+                  <img src="warmer-1.jpg" alt="گرم‌نگهدارنده تمام استیل" />
+                </div>
+              </div>
+              <div class="photo-card__body">
+                <div class="photo-card__head"><h3>گرم‌نگهدارنده تمام استیل</h3><p class="photo-card__price">۵٬۹۰۰٬۰۰۰ تومان</p></div>
+                <p class="photo-card__meta">دوجداره · ۵٫۸ لیتر</p>
+                <span class="x-stock" data-s="in">موجود</span>
+                <a class="link" data-wa="گرم‌نگهدارنده تمام استیل" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
+              </div>
+            </article>
+
+            <article class="photo-card" id="souffle-warmer" data-cat="souffle">
+              <div class="photo-card__stage">
+                <div class="photo-card__photos" dir="ltr">
+                  <img src="souffle-warmer-1.jpg" alt="سوفله‌خوری وارمردار سفید و طلایی" />
+                  <img src="souffle-warmer-2.jpg" alt="سوفله‌خوری وارمردار سفید و طلایی، مدل دیگر" loading="lazy" />
+                </div>
+              </div>
+              <div class="photo-card__body">
+                <div class="photo-card__head"><h3>سوفله‌خوری وارمردار سفید و طلایی</h3><p class="photo-card__price">استعلام قیمت</p></div>
+                <p class="photo-card__meta">مدل دوقلو و تک‌قلو · پایه وارمردار</p>
+                <span class="x-stock" data-s="in">موجود</span>
+                <a class="link" data-wa="سوفله‌خوری وارمردار سفید و طلایی" href="https://wa.me/989913915428" target="_blank" rel="noopener">استعلام قیمت در واتساپ</a>
+              </div>
+            </article>
+
+            <article class="photo-card x-out" id="souffle-twin" data-cat="souffle">
+              <div class="photo-card__stage">
+                <div class="photo-card__photos" dir="ltr">
+                  <img src="souffle-twin-1.jpg" alt="سوفله‌خوری سرامیکی دوقلو مستطیلی" />
+                </div>
+              </div>
+              <div class="photo-card__body">
+                <div class="photo-card__head"><h3>سوفله‌خوری سرامیکی دوقلو مستطیلی</h3><p class="photo-card__price">۲٬۹۰۰٬۰۰۰ تومان</p></div>
+                <p class="photo-card__meta">وارمردار · هر ظرف ۱٫۸ لیتر</p>
+                <span class="x-stock" data-s="out">ناموجود</span>
+                <button class="btn x-off" type="button" disabled>ناموجود</button>
+                <a class="link" data-wa-text="سلام، سوفله‌خوری سرامیکی دوقلو مستطیلی موجود شد خبرم کنید" href="https://wa.me/989913915428" target="_blank" rel="noopener">خبرم کن</a>
+              </div>
+            </article>
+
+            <article class="photo-card" id="flask-gold" data-cat="serve">
+              <div class="photo-card__stage">
+                <div class="photo-card__photos" dir="ltr">
+                  <img src="flask-gold-1.jpg" alt="فلاسک تمام طلایی طرح جدید" />
+                  <img src="flask-gold-2.jpg" alt="فلاسک تمام طلایی، طرح گل برجسته" loading="lazy" />
+                </div>
+              </div>
+              <div class="photo-card__body">
+                <div class="photo-card__head"><h3>فلاسک تمام طلایی طرح جدید</h3><p class="photo-card__price">۳٬۹۹۰٬۰۰۰ تومان</p></div>
+                <p class="photo-card__meta">۱٫۹ لیتر · شیشه صورتی اصل · طرح گل برجسته</p>
+                <span class="x-stock" data-s="in">موجود</span>
+                <a class="link" data-wa="فلاسک تمام طلایی طرح جدید" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
+              </div>
+            </article>
+
+            <article class="photo-card" id="stand-gold" data-cat="serve">
+              <div class="photo-card__stage">
+                <div class="photo-card__photos" dir="ltr">
+                  <img src="stand-gold-1.jpg" alt="ست استند طلایی پذیرایی" />
+                  <img src="stand-gold-2.jpg" alt="ست استند طلایی پذیرایی، نمای دیگر" loading="lazy" />
+                </div>
+              </div>
+              <div class="photo-card__body">
+                <div class="photo-card__head"><h3>ست استند طلایی پذیرایی</h3><p class="photo-card__price">استعلام قیمت</p></div>
+                <p class="photo-card__meta">۱۲ فنجان · ظرف حلواخوری · استند فلزی طلایی</p>
+                <span class="x-stock" data-s="in">موجود</span>
+                <a class="link" data-wa="ست استند طلایی پذیرایی" href="https://wa.me/989913915428" target="_blank" rel="noopener">استعلام قیمت در واتساپ</a>
+              </div>
+            </article>
+
+            <article class="photo-card" id="halva-bowl" data-cat="serve">
+              <div class="photo-card__stage">
+                <div class="photo-card__photos" dir="ltr">
+                  <img src="halva-bowl-1.jpg" alt="کاسه حلوایی لعابی خارجی" />
+                </div>
+              </div>
+              <div class="photo-card__body">
+                <div class="photo-card__head"><h3>کاسه حلوایی لعابی خارجی</h3><p class="photo-card__price">۸۵۰٬۰۰۰ تومان</p></div>
+                <p class="photo-card__meta">۱۶ سانت · دو طرح · قیمت هر عدد</p>
+                <span class="x-stock" data-s="in">موجود</span>
+                <a class="link" data-wa="کاسه حلوایی لعابی خارجی" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
+              </div>
+            </article>
+
+            <article class="photo-card" id="bowl-ceramic" data-cat="kitchen">
+              <div class="photo-card__stage">
+                <div class="photo-card__photos" dir="ltr">
+                  <img src="bowl-ceramic-1.jpg" alt="کاسه سرامیکی سه‌تکه با درب سوپاپ‌دار" />
+                  <img src="bowl-ceramic-2.jpg" alt="کاسه سرامیکی سه‌تکه، نمای دیگر" loading="lazy" />
+                </div>
+              </div>
+              <div class="photo-card__body">
+                <div class="photo-card__head"><h3>کاسه سرامیکی سه‌تکه</h3><p class="photo-card__price">۱٬۶۰۰٬۰۰۰ تومان</p></div>
+                <p class="photo-card__meta">درب سوپاپ‌دار · قطر ۱۰، ۱۲ و ۱۵ سانت</p>
+                <span class="x-stock" data-s="in">موجود</span>
+                <a class="link" data-wa="کاسه سرامیکی سه‌تکه" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
+              </div>
+            </article>
+
+            <article class="photo-card" id="spice-rack" data-cat="kitchen">
+              <div class="photo-card__stage">
+                <div class="photo-card__photos" dir="ltr">
+                  <img src="spice-rack-1.jpg" alt="جاادویه وارداتی با استند چوبی دوطبقه" />
+                  <img src="spice-rack-2.jpg" alt="جاادویه وارداتی، نمای نزدیک" loading="lazy" />
+                </div>
+              </div>
+              <div class="photo-card__body">
+                <div class="photo-card__head"><h3>جاادویه وارداتی</h3><p class="photo-card__price">۴٬۸۰۰٬۰۰۰ تومان</p></div>
+                <p class="photo-card__meta">استند چوبی دوطبقه · شیشه شیاردار · درب چوبی با دستگیره طلایی</p>
+                <span class="x-stock" data-s="in">موجود</span>
+                <a class="link" data-wa="جاادویه وارداتی" href="https://wa.me/989913915428" target="_blank" rel="noopener">ثبت سفارش</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="how" data-nav="نحوه سفارش">
+          <div class="head">
+            <p class="head__eyebrow">نحوه سفارش</p>
+            <h2>سفارش، بدون نگرانی از موجودی</h2>
+          </div>
+          <div class="steps">
+            <article class="step">
+              <div class="step__intro"><p class="step__num">۰۱</p></div>
+              <div><h3>محصول رو انتخاب کنید و «ثبت سفارش» رو بزنید.</h3></div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">۰۲</p></div>
+              <div><h3>موجودی رو تأیید می‌کنیم و همون‌جا خبرتون می‌کنیم.</h3></div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">۰۳</p></div>
+              <div><h3>بعد از تأیید پرداخت می‌کنید و سفارش به سراسر ایران ارسال می‌شه.</h3></div>
+            </article>
+          </div>
+          <aside class="callout x-note" aria-label="پرداخت">
+            <p class="callout__lead"><strong>تا موجودی تأیید نشه، پرداختی لازم نیست.</strong></p>
+          </aside>
+        </section>
+
+        <section class="section" id="contact" data-nav="تماس">
+          <div class="head">
+            <p class="head__eyebrow">تماس</p>
+            <h2>سؤال یا سفارش؟ پیام بدید.</h2>
+          </div>
+          <div class="cards">
+            <div>
+              <h3>واتساپ</h3>
+              <p><a class="link" href="https://wa.me/989913915428" target="_blank" rel="noopener">۰۹۹۱۳۹۱۵۴۲۸</a></p>
+            </div>
+            <div>
+              <h3>اینستاگرام</h3>
+              <p><a class="link" href="https://www.instagram.com/market_zarf/" target="_blank" rel="noopener" dir="ltr">@market_zarf</a></p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="foot">
+        <p>نمونه پیشنهادی طراحی‌شده برای مارکت ظرف توسط webrahim.ir — تصاویر و اطلاعات از صفحه اینستاگرام مارکت ظرف</p>
+        <nav aria-label="بخش‌ها">
+          <a href="#top">بالا</a>
+          <a href="#products">محصولات</a>
+          <a href="#how">نحوه سفارش</a>
+          <a href="#contact">تماس</a>
+        </nav>
+      </footer>
+    </div>
+    <div class="x-bar">
+      <a class="x-cta" href="https://wa.me/989913915428" target="_blank" rel="noopener">سفارش در واتساپ</a>
+    </div>
+    <script src="hark.js"></script>
+    <script src="hark-cards.js"></script>
+    <script>
+      (function () {
+        var WA = "https://wa.me/989913915428?text=";
+        function orderHref(name) {
+          return WA + encodeURIComponent("سلام، می‌خوام این محصول رو سفارش بدم: " + name);
+        }
+        document.querySelectorAll("[data-wa]").forEach(function (a) {
+          a.href = orderHref(a.getAttribute("data-wa"));
+        });
+        document.querySelectorAll("[data-wa-text]").forEach(function (a) {
+          a.href = WA + encodeURIComponent(a.getAttribute("data-wa-text"));
+        });
+
+        var price = document.getElementById("dish-price");
+        var order = document.getElementById("dish-order");
+        document.querySelectorAll(".x-sizes .x-chip").forEach(function (b, _, all) {
+          b.addEventListener("click", function () {
+            all.forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
+            price.textContent = b.getAttribute("data-price");
+            order.href = orderHref("دیس استیل طلایی (" + b.getAttribute("data-size") + ")");
+          });
+        });
+
+        var cards = document.querySelectorAll(".x-grid > .photo-card");
+        document.querySelectorAll("[data-filter]").forEach(function (b, _, all) {
+          b.addEventListener("click", function () {
+            var f = b.getAttribute("data-filter");
+            all.forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
+            cards.forEach(function (c) { c.hidden = f !== "all" && c.getAttribute("data-cat") !== f; });
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
